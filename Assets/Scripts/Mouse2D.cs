@@ -11,7 +11,7 @@ public class Mouse2D : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     private void Update()

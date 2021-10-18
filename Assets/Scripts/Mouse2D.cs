@@ -20,7 +20,7 @@ public class Mouse2D : MonoBehaviour
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0f;
 
-        print(Input.mousePosition + ";;;" + mouseWorldPosition);
+        //print(Input.mousePosition + ";;;" + mouseWorldPosition);
              
         transform.position = mouseWorldPosition;
 

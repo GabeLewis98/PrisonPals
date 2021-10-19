@@ -11,6 +11,7 @@ public class Draw : MonoBehaviour
     public float zHeight = 1f;
     public EdgeCollider2D stencilCollider;
     public Vector3 offset;
+    public GameManager gameScript;
 
     LineRenderer currentLineRenderer;
     int lastIndex = 0;
@@ -50,6 +51,7 @@ public class Draw : MonoBehaviour
             lastIndex = tattooPoints.Count;
             tattooLines.Add(currentLineRenderer);
             currentLineRenderer = null;
+            StartCoroutine(gameScript.EndTatto());
         }
     }
 
@@ -59,12 +61,13 @@ public class Draw : MonoBehaviour
         currentLineRenderer.positionCount = tattooPoints.Count - lastIndex;
         Vector3[] newLinePoints = tattooPoints.GetRange(lastIndex, currentLineRenderer.positionCount).ToArray();
         currentLineRenderer.SetPositions(newLinePoints);
-        float distance = checkScore(newPoint); 
-       
     }
 
     float checkScore(Vector3 currentPoint)
     {
+        if (stencilCollider == null)
+            return 0;
+
         Vector3 closestPoint = stencilCollider.ClosestPoint(currentPoint);
         float dist = Vector3.Distance(currentPoint, closestPoint);
         return dist + zHeight;     
@@ -80,5 +83,15 @@ public class Draw : MonoBehaviour
         tattooLines = new List<LineRenderer>();
         tattooPoints = new List<Vector3>();
         lastIndex = 0;       
+    }
+
+    public float getFinalScore()
+    {
+        float total = 0;
+        for (int i = 0; i < tattooPoints.Count; i++)
+        {
+            total += checkScore(tattooPoints[i]);
+        }
+        return total;
     }
 }

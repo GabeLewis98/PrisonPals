@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator addArm()
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         GameObject stencil = GameObject.FindGameObjectWithTag("Stencil");
         EdgeCollider2D col = stencil.GetComponent<EdgeCollider2D>();
 
-        if(col != null)        
+        if (col != null)
             drawScript.setUpTattoo(col);
 
     }
@@ -55,26 +55,29 @@ public class GameManager : MonoBehaviour
     public IEnumerator EndTatto()
     {
         float totalScore = drawScript.getFinalScore();
+        SpriteRenderer sr = currentArm.transform.GetChild(1).GetComponent<SpriteRenderer>();
 
         if (totalScore <= minimumScore)
         {
             //Display good tattoo
             scoreDisplay.text = ("Good Tattoo " + totalScore);
-            SpriteRenderer spriteRenderer = gameObject.GetComponent <SpriteRenderer>();
-            
-            
+            sr.sprite = goodSprite;
+
+
         }
         else if (totalScore > minimumScore && totalScore <= mediumScore)
         {
             //Display medium tattoo
             scoreDisplay.text = ("Med Tattoo " + totalScore);
+            sr.sprite = medSprite;
         }
         else
         {
             //Display worst tattoo
             scoreDisplay.text = ("Bad Tattoo " + totalScore);
+            sr.sprite = badSprite;
         }
-
+        sr.color = Color.white;
         yield return endDelayWait;
         StartCoroutine(addArm());
         scoreDisplay.text = "";

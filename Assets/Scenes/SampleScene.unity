@@ -236,6 +236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arms:
   - {fileID: 2182064090457109558, guid: 7e18a896060ecc745a2e3def39a54333, type: 3}
+  - {fileID: 2182064090457109558, guid: 22d644455a3b0224fb5bc80a56857ace, type: 3}
+  - {fileID: 2182064090457109558, guid: 80010699402828b4ea7708245d83d541, type: 3}
   drawScript: {fileID: 1252351929}
   minimumScore: 2
   mediumScore: 4

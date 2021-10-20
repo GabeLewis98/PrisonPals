@@ -55,29 +55,32 @@ public class GameManager : MonoBehaviour
     public IEnumerator EndTatto()
     {
         float totalScore = drawScript.getFinalScore();
-        SpriteRenderer sr = currentArm.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        //SpriteRenderer sr = currentArm.transform.GetChild(1).GetComponent<SpriteRenderer>();
 
         if (totalScore <= minimumScore)
         {
             //Display good tattoo
-            scoreDisplay.text = ("Good Tattoo " + totalScore);
-            sr.sprite = goodSprite;
+            scoreDisplay.text = ("Good Tattoo ");
+            currentArm.transform.GetChild(1).gameObject.SetActive(true);
+            //sr.sprite = goodSprite;
 
 
         }
         else if (totalScore > minimumScore && totalScore <= mediumScore)
         {
             //Display medium tattoo
-            scoreDisplay.text = ("Med Tattoo " + totalScore);
-            sr.sprite = medSprite;
+            scoreDisplay.text = ("Med Tattoo ");
+            currentArm.transform.GetChild(2).gameObject.SetActive(true);
+            //sr.sprite = medSprite;
         }
         else
         {
             //Display worst tattoo
-            scoreDisplay.text = ("Bad Tattoo " + totalScore);
-            sr.sprite = badSprite;
+            scoreDisplay.text = ("Bad Tattoo ");
+            currentArm.transform.GetChild(3).gameObject.SetActive(true);
+            //sr.sprite = badSprite;
         }
-        sr.color = Color.white;
+        //sr.color = Color.white;
         yield return endDelayWait;
         StartCoroutine(addArm());
         scoreDisplay.text = "";

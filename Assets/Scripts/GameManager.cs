@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         if (totalScore <= minimumScore)
         {
             //Display good tattoo
-            scoreDisplay.text = ("Good Tattoo ");
+            scoreDisplay.text = ("Perfect ");
             currentArm.transform.GetChild(1).gameObject.SetActive(true);
             //sr.sprite = goodSprite;
 
@@ -69,14 +69,14 @@ public class GameManager : MonoBehaviour
         else if (totalScore > minimumScore && totalScore <= mediumScore)
         {
             //Display medium tattoo
-            scoreDisplay.text = ("Med Tattoo ");
+            scoreDisplay.text = ("Ok ");
             currentArm.transform.GetChild(2).gameObject.SetActive(true);
             //sr.sprite = medSprite;
         }
         else
         {
             //Display worst tattoo
-            scoreDisplay.text = ("Bad Tattoo ");
+            scoreDisplay.text = ("Terrible ");
             currentArm.transform.GetChild(3).gameObject.SetActive(true);
             //sr.sprite = badSprite;
         }

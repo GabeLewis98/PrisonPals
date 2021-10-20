@@ -243,7 +243,7 @@ MonoBehaviour:
   mediumScore: 4
   armStart: {fileID: 150272096}
   scoreDisplay: {fileID: 1994239176}
-  endDelay: 5
+  endDelay: 2
   goodSprite: {fileID: 21300000, guid: e05c48a0e3599b94f8958450cbf1f315, type: 3}
   medSprite: {fileID: 21300000, guid: 918d634f6129f714a8707a88ca829569, type: 3}
   badSprite: {fileID: 21300000, guid: 65260a1e2ee902f44919e83d39ef20a8, type: 3}

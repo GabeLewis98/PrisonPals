@@ -1905,7 +1905,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: GabeGameScene
+          value: SampleScene
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
